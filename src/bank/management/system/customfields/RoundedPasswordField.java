@@ -1,4 +1,4 @@
-package bank.management.system;
+package bank.management.system.customfields;
 
 import javax.swing.*;
 import java.awt.*;

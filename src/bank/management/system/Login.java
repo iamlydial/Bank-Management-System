@@ -1,13 +1,20 @@
 package bank.management.system;
 
-import bank.management.system.util.TextFieldFactory;
+import bank.management.system.customfields.CustomFieldLabel;
+import bank.management.system.customfields.CustomTitleLabel;
+import bank.management.system.customfields.RoundedPasswordField;
+import bank.management.system.customfields.RoundedTextField;
+import bank.management.system.factories.FieldLabelFactory;
+import bank.management.system.factories.TextFieldFactory;
+import bank.management.system.factories.TitleLabelFactory;
 
 import javax.swing.*;
 import java.awt.*;
 
 public class Login extends JFrame {
 
-    JLabel label1, label2, label3;
+    CustomTitleLabel label1;
+    CustomFieldLabel label2, label3;
     RoundedTextField roundedTextField1;
     RoundedPasswordField roundedPasswordField2;
 
@@ -41,26 +48,17 @@ public class Login extends JFrame {
         iimage.setBounds(630, 350, 100, 100);
         add(iimage);
 
-        label1  = new JLabel("WELCOME TO ATM");
-        label1.setForeground(Color.WHITE);
-        label1.setFont(new Font("AvantGarde", Font.BOLD, 38));
-        label1.setBounds(230, 125, 450,40);
+        label1  = TitleLabelFactory.createTitleLabel("WELCOME TO ATM", 230, 125, 450,40);
         add(label1);
 
-        label2  = new JLabel("Card No: ");
-        label2.setForeground(Color.WHITE);
-        label2.setFont(new Font("Railway", Font.BOLD, 28));
-        label2.setBounds(150, 190, 375,30);
+        label2  = FieldLabelFactory.createTitleLabel("Card No: ", 150, 190, 375,30);
         add(label2);
 
         roundedTextField1 = TextFieldFactory.createRoundedTextField(20);
         roundedTextField1.setBounds(325, 190, 230, 30);
         add(roundedTextField1);
 
-        label3  = new JLabel("PIN: ");
-        label3.setForeground(Color.WHITE);
-        label3.setFont(new Font("Railway", Font.BOLD, 28));
-        label3.setBounds(150, 250, 375,30);
+        label3 = FieldLabelFactory.createTitleLabel("PIN: ", 150, 250, 375,30);
         add(label3);
 
         roundedPasswordField2 = TextFieldFactory.createRoundedPasswordField(20);

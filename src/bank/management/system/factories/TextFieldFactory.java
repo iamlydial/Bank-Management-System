@@ -1,7 +1,7 @@
-package bank.management.system.util;
+package bank.management.system.factories;
 
-import bank.management.system.RoundedPasswordField;
-import bank.management.system.RoundedTextField;
+import bank.management.system.customfields.RoundedPasswordField;
+import bank.management.system.customfields.RoundedTextField;
 import java.awt.*;
 
 public class TextFieldFactory {
