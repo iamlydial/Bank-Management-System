@@ -38,7 +38,7 @@ public class Login extends JFrame implements ActionListener {
         // Create a JLabel to display the ImageIcon
         JLabel image = new JLabel(i3);
         // Set the position and size of the JLabel on the container (x = 350, y = 10, width = 100, height = 100)
-        image.setBounds(350, 10, 100, 100);
+        image.setBounds(370, 10, 100, 100);
         // Add the JLabel with the image to the JFrame container
         add(image);
 
@@ -50,32 +50,32 @@ public class Login extends JFrame implements ActionListener {
         iimage.setBounds(630, 350, 100, 100);
         add(iimage);
 
-        label1  = TitleLabelFactory.createTitleLabel("FANT-ATM", 300, 125, 450,40);
+        label1  = TitleLabelFactory.createTitleLabel("FANT-ATM", 310, 125, 450,40);
         add(label1);
 
-        label2  = FieldLabelFactory.createTitleLabel("Card No: ", 300, 170, 375,30);
+        label2  = FieldLabelFactory.createTitleLabel("Card No: ", 310, 170, 375,30);
         add(label2);
 
         roundedTextField1 = TextFieldFactory.createRoundedTextField(10);
-        roundedTextField1.setBounds(300, 200, 220, 30);
+        roundedTextField1.setBounds(310, 200, 220, 30);
         add(roundedTextField1);
 
-        label3 = FieldLabelFactory.createTitleLabel("PIN: ", 300, 240, 375,30);
+        label3 = FieldLabelFactory.createTitleLabel("PIN: ", 310, 240, 375,30);
         add(label3);
 
         roundedPasswordField2 = TextFieldFactory.createRoundedPasswordField(10);
-        roundedPasswordField2.setBounds(300, 270, 220, 30);
+        roundedPasswordField2.setBounds(310, 270, 220, 30);
         add(roundedPasswordField2);
 
-        signInButton = ButtonFactory.createDefaultRoundedButton("SIGN IN", 300, 320, 100, 30);
+        signInButton = ButtonFactory.createDefaultRoundedButton("SIGN IN", 310, 320, 100, 30);
         signInButton.addActionListener(this);
         add(signInButton);
 
-        clearButton = ButtonFactory.createDefaultRoundedButton("CLEAR", 420, 320, 100, 30);
+        clearButton = ButtonFactory.createDefaultRoundedButton("CLEAR", 430, 320, 100, 30);
         clearButton.addActionListener(this);
         add(clearButton);
 
-        signUpButton = ButtonFactory.createDefaultRoundedButton("SIGN UP", 300, 360, 220, 30);
+        signUpButton = ButtonFactory.createDefaultRoundedButton("SIGN UP", 310, 360, 220, 30);
         signUpButton.addActionListener(this);
         add(signUpButton);
 
