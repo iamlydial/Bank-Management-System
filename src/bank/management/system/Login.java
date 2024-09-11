@@ -5,7 +5,7 @@ import java.awt.*;
 
 public class Login extends JFrame {
 
-    JLabel label1;
+    JLabel label1, label2, label3;
 
 
     Login(){
@@ -42,6 +42,18 @@ public class Login extends JFrame {
         label1.setFont(new Font("AvantGarde", Font.BOLD, 38));
         label1.setBounds(230, 125, 450,40);
         add(label1);
+
+        label2  = new JLabel("Card No: ");
+        label2.setForeground(Color.WHITE);
+        label2.setFont(new Font("Railway", Font.BOLD, 28));
+        label2.setBounds(150, 190, 375,30);
+        add(label2);
+
+        label3  = new JLabel("PIN: ");
+        label3.setForeground(Color.WHITE);
+        label3.setFont(new Font("Railway", Font.BOLD, 28));
+        label3.setBounds(150, 250, 375,30);
+        add(label3);
 
 
         ImageIcon iii1 = new ImageIcon(ClassLoader.getSystemResource("icon/backbg.png"));
