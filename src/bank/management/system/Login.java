@@ -16,7 +16,7 @@ public class Login extends JFrame {
     RoundedTextField roundedTextField1;
     RoundedPasswordField roundedPasswordField2;
 
-    RoundedButton button1, button2, button3;
+    RoundedButton signInButton, clearButton, signUpButton;
 
 
     Login(){
@@ -65,10 +65,14 @@ public class Login extends JFrame {
         roundedPasswordField2.setBounds(300, 270, 220, 30);
         add(roundedPasswordField2);
 
-        button1 = ButtonFactory.createDefaultRoundedButton("SIGN IN", 300, 320, 100, 30);
-        add(button1);
-        button2 = ButtonFactory.createDefaultRoundedButton("CLEAR", 420, 320, 100, 30);
-        add(button2);
+        signInButton = ButtonFactory.createDefaultRoundedButton("SIGN IN", 300, 320, 100, 30);
+        add(signInButton);
+
+        clearButton = ButtonFactory.createDefaultRoundedButton("CLEAR", 420, 320, 100, 30);
+        add(clearButton);
+
+        signUpButton = ButtonFactory.createDefaultRoundedButton("SIGN UP", 300, 360, 220, 30);
+        add(signUpButton);
 
         ImageIcon iii1 = new ImageIcon(ClassLoader.getSystemResource("icon/backbg.png"));
         Image iii2 = iii1.getImage().getScaledInstance(850,480, Image.SCALE_DEFAULT);
