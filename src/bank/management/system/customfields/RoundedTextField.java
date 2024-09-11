@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public class RoundedTextField extends JTextField {
-    private int radius;
+    private final int radius;
 
     public RoundedTextField(int radius, Font font, Color bgColor, Color fgColor) {
         this.radius = radius;

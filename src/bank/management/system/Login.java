@@ -1,9 +1,7 @@
 package bank.management.system;
 
-import bank.management.system.customfields.CustomFieldLabel;
-import bank.management.system.customfields.CustomTitleLabel;
-import bank.management.system.customfields.RoundedPasswordField;
-import bank.management.system.customfields.RoundedTextField;
+import bank.management.system.customfields.*;
+import bank.management.system.factories.ButtonFactory;
 import bank.management.system.factories.FieldLabelFactory;
 import bank.management.system.factories.TextFieldFactory;
 import bank.management.system.factories.TitleLabelFactory;
@@ -17,6 +15,8 @@ public class Login extends JFrame {
     CustomFieldLabel label2, label3;
     RoundedTextField roundedTextField1;
     RoundedPasswordField roundedPasswordField2;
+
+    RoundedButton button1, button2, button3;
 
 
     Login(){
@@ -48,23 +48,27 @@ public class Login extends JFrame {
         iimage.setBounds(630, 350, 100, 100);
         add(iimage);
 
-        label1  = TitleLabelFactory.createTitleLabel("WELCOME TO ATM", 230, 125, 450,40);
+        label1  = TitleLabelFactory.createTitleLabel("FANT-ATM", 300, 125, 450,40);
         add(label1);
 
-        label2  = FieldLabelFactory.createTitleLabel("Card No: ", 150, 190, 375,30);
+        label2  = FieldLabelFactory.createTitleLabel("Card No: ", 300, 170, 375,30);
         add(label2);
 
-        roundedTextField1 = TextFieldFactory.createRoundedTextField(20);
-        roundedTextField1.setBounds(325, 190, 230, 30);
+        roundedTextField1 = TextFieldFactory.createRoundedTextField(10);
+        roundedTextField1.setBounds(300, 200, 220, 30);
         add(roundedTextField1);
 
-        label3 = FieldLabelFactory.createTitleLabel("PIN: ", 150, 250, 375,30);
+        label3 = FieldLabelFactory.createTitleLabel("PIN: ", 300, 240, 375,30);
         add(label3);
 
-        roundedPasswordField2 = TextFieldFactory.createRoundedPasswordField(20);
-        roundedPasswordField2.setBounds(325, 240, 230, 30);
+        roundedPasswordField2 = TextFieldFactory.createRoundedPasswordField(10);
+        roundedPasswordField2.setBounds(300, 270, 220, 30);
         add(roundedPasswordField2);
 
+        button1 = ButtonFactory.createDefaultRoundedButton("SIGN IN", 300, 320, 100, 30);
+        add(button1);
+        button2 = ButtonFactory.createDefaultRoundedButton("CLEAR", 420, 320, 100, 30);
+        add(button2);
 
         ImageIcon iii1 = new ImageIcon(ClassLoader.getSystemResource("icon/backbg.png"));
         Image iii2 = iii1.getImage().getScaledInstance(850,480, Image.SCALE_DEFAULT);

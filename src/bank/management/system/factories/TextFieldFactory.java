@@ -14,6 +14,6 @@ public class TextFieldFactory {
         return new RoundedTextField(radius, font, bgColor, fgColor);
     }
     public static RoundedPasswordField createRoundedPasswordField(int radius) {
-        return new RoundedPasswordField(radius, new Font("Arial", Font.BOLD, 14), Color.WHITE, Color.GRAY);
+        return new RoundedPasswordField(radius, new Font("Roboto", Font.BOLD, 14), Color.WHITE, Color.GRAY);
     }
 }

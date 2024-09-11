@@ -22,6 +22,6 @@ public class FieldLabelFactory {
      */
     public static CustomFieldLabel createTitleLabel(String text, int x, int y, int width, int height) {
         // Create and return a CustomFieldLabel with predefined color, font, and position
-        return new CustomFieldLabel(text, Color.WHITE, new Font("Railway", Font.BOLD, 28), x, y, width, height);
+        return new CustomFieldLabel(text, Color.WHITE, new Font("Roboto", Font.PLAIN, 16), x, y, width, height);
     }
 }
