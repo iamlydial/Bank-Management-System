@@ -1,11 +1,15 @@
 package bank.management.system;
 
+import bank.management.system.util.TextFieldFactory;
+
 import javax.swing.*;
 import java.awt.*;
 
 public class Login extends JFrame {
 
     JLabel label1, label2, label3;
+    RoundedTextField roundedTextField1;
+    RoundedPasswordField roundedPasswordField2;
 
 
     Login(){
@@ -49,11 +53,19 @@ public class Login extends JFrame {
         label2.setBounds(150, 190, 375,30);
         add(label2);
 
+        roundedTextField1 = TextFieldFactory.createRoundedTextField(20);
+        roundedTextField1.setBounds(325, 190, 230, 30);
+        add(roundedTextField1);
+
         label3  = new JLabel("PIN: ");
         label3.setForeground(Color.WHITE);
         label3.setFont(new Font("Railway", Font.BOLD, 28));
         label3.setBounds(150, 250, 375,30);
         add(label3);
+
+        roundedPasswordField2 = TextFieldFactory.createRoundedPasswordField(20);
+        roundedPasswordField2.setBounds(325, 240, 230, 30);
+        add(roundedPasswordField2);
 
 
         ImageIcon iii1 = new ImageIcon(ClassLoader.getSystemResource("icon/backbg.png"));
