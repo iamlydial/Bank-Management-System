@@ -8,8 +8,10 @@ import bank.management.system.factories.TitleLabelFactory;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class Login extends JFrame {
+public class Login extends JFrame implements ActionListener {
 
     CustomTitleLabel label1;
     CustomFieldLabel label2, label3;
@@ -66,12 +68,15 @@ public class Login extends JFrame {
         add(roundedPasswordField2);
 
         signInButton = ButtonFactory.createDefaultRoundedButton("SIGN IN", 300, 320, 100, 30);
+        signInButton.addActionListener(this);
         add(signInButton);
 
         clearButton = ButtonFactory.createDefaultRoundedButton("CLEAR", 420, 320, 100, 30);
+        clearButton.addActionListener(this);
         add(clearButton);
 
         signUpButton = ButtonFactory.createDefaultRoundedButton("SIGN UP", 300, 360, 220, 30);
+        signUpButton.addActionListener(this);
         add(signUpButton);
 
         ImageIcon iii1 = new ImageIcon(ClassLoader.getSystemResource("icon/backbg.png"));
@@ -85,6 +90,22 @@ public class Login extends JFrame {
         setSize(850,480);
         setLocation(450,200);
         setVisible(true);
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e){
+        try{
+            if(e.getSource() == signInButton){
+                
+            } else if(e.getSource() == clearButton){
+                roundedTextField1.setText("");
+                roundedPasswordField2.setText("");
+            } else if (e.getSource() == signUpButton) {
+                
+            }
+        } catch (Exception E){
+            E.printStackTrace();
+        }
     }
 
     public static void main(String[] args) {
