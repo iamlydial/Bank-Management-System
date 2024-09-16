@@ -2,6 +2,8 @@ package bank.management.system;
 
 import bank.management.system.customfields.CustomFieldLabel;
 import bank.management.system.customfields.CustomTitleLabel;
+import bank.management.system.customfields.RoundedTextField;
+import bank.management.system.factories.TextFieldFactory;
 import bank.management.system.factories.TitleLabelFactory;
 
 import javax.swing.*;
@@ -9,6 +11,8 @@ import java.awt.*;
 import java.util.Random;
 
 public class Signup extends JFrame {
+
+    RoundedTextField fieldName;
     Random ran = new Random();
     long first4 = (ran.nextLong()%9000L)+1000L;
     String first = " " + Math.abs(first4);
@@ -37,6 +41,13 @@ public class Signup extends JFrame {
 
         CustomTitleLabel label3 = TitleLabelFactory.createTitleLabelCustomFontSize("Personal details", Color.BLACK, 22,330, 110, 600, 30);
         add(label3);
+
+        CustomFieldLabel labelName = new CustomFieldLabel("Name",Color.BLACK, (new Font("Ralway", Font.BOLD, 20)), 100, 190, 100, 20);
+        add(labelName);
+
+        fieldName = TextFieldFactory.createCustomRoundedTextField(20,(new Font("Ralway", Font.BOLD, 14)), Color.WHITE, Color.BLACK );
+        fieldName.setBounds(100, 240, 200, 30);
+        add(fieldName);
 
         getContentPane().setBackground(new Color(222,255, 228));
         setLayout(null);
