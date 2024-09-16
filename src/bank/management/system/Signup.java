@@ -5,6 +5,7 @@ import bank.management.system.customfields.CustomTitleLabel;
 import bank.management.system.customfields.RoundedTextField;
 import bank.management.system.factories.TextFieldFactory;
 import bank.management.system.factories.TitleLabelFactory;
+import com.toedter.calendar.JDateChooser;
 
 import javax.swing.*;
 import java.awt.*;
@@ -12,7 +13,8 @@ import java.util.Random;
 
 public class Signup extends JFrame {
 
-    RoundedTextField fieldName;
+    RoundedTextField fieldName, fieldLastname;
+    JDateChooser dateChooser;
     Random ran = new Random();
     long first4 = (ran.nextLong()%9000L)+1000L;
     String first = " " + Math.abs(first4);
@@ -48,6 +50,21 @@ public class Signup extends JFrame {
         fieldName = TextFieldFactory.createCustomRoundedTextField(20,(new Font("Ralway", Font.BOLD, 14)), Color.WHITE, Color.BLACK );
         fieldName.setBounds(100, 240, 200, 30);
         add(fieldName);
+
+        CustomFieldLabel labelLastName = new CustomFieldLabel("Last Name",Color.BLACK, (new Font("Ralway", Font.BOLD, 20)), 100, 290, 200, 20);
+        add(labelLastName);
+
+        fieldLastname = TextFieldFactory.createCustomRoundedTextField(20,(new Font("Ralway", Font.BOLD, 14)), Color.WHITE, Color.BLACK );
+        fieldLastname.setBounds(100, 340, 200, 30);
+        add(fieldLastname);
+
+        CustomFieldLabel DOB = new CustomFieldLabel("Date of Birth",Color.BLACK, (new Font("Ralway", Font.BOLD, 20)), 100, 380, 200, 30);
+        add(DOB);
+
+        dateChooser = new JDateChooser();
+        dateChooser.setForeground(new Color(105, 105, 105));
+        dateChooser.setBounds(100, 420, 200, 30);
+        add(dateChooser);
 
         getContentPane().setBackground(new Color(222,255, 228));
         setLayout(null);
