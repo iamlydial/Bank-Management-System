@@ -32,6 +32,12 @@ public class Signup extends JFrame {
         CustomTitleLabel label1 = TitleLabelFactory.createTitleLabelCustomColor("APPLICATION FORM NO." + first, Color.BLACK,160, 20, 600, 40);
         add(label1);
 
+        CustomTitleLabel label2 = TitleLabelFactory.createTitleLabelCustomFontSize("Page 1", Color.BLACK, 22,380, 70, 600, 30);
+        add(label2);
+
+        CustomTitleLabel label3 = TitleLabelFactory.createTitleLabelCustomFontSize("Personal details", Color.BLACK, 22,330, 110, 600, 30);
+        add(label3);
+
         getContentPane().setBackground(new Color(222,255, 228));
         setLayout(null);
         setSize(850, 800);

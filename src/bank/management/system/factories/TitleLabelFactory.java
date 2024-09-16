@@ -11,5 +11,9 @@ public class TitleLabelFactory {
     public static CustomTitleLabel createTitleLabelCustomColor(String text, Color color,  int x, int y, int width, int height) {
         return new CustomTitleLabel(text, color, new Font("AvantGarde", Font.BOLD, 38), x, y, width, height);
     }
+
+    public static CustomTitleLabel createTitleLabelCustomFontSize(String text, Color color, int fontSize , int x, int y, int width, int height) {
+        return new CustomTitleLabel(text, color, new Font("AvantGarde", Font.BOLD, fontSize), x, y, width, height);
+    }
 }
 
