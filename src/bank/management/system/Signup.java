@@ -2,20 +2,24 @@ package bank.management.system;
 
 import bank.management.system.customfields.CustomFieldLabel;
 import bank.management.system.customfields.CustomTitleLabel;
+import bank.management.system.customfields.RoundedButton;
 import bank.management.system.customfields.RoundedTextField;
+import bank.management.system.factories.ButtonFactory;
 import bank.management.system.factories.TextFieldFactory;
 import bank.management.system.factories.TitleLabelFactory;
 import com.toedter.calendar.JDateChooser;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.Random;
 
-public class Signup extends JFrame {
+public class Signup extends JFrame implements ActionListener {
 
-    JRadioButton r1,r2;
+    JRadioButton r1, r2, married, unmarried, other;
 
-    RoundedTextField fieldName, fieldLastname;
+    RoundedTextField fieldName, fieldLastname, fieldEmail, fieldAddress,fieldCity, fieldState;
     JDateChooser dateChooser;
     Random ran = new Random();
     long first4 = (ran.nextLong()%9000L)+1000L;
@@ -50,42 +54,114 @@ public class Signup extends JFrame {
         add(labelName);
 
         fieldName = TextFieldFactory.createCustomRoundedTextField(20,(new Font("Ralway", Font.BOLD, 14)), Color.WHITE, Color.BLACK );
-        fieldName.setBounds(100, 240, 200, 30);
+        fieldName.setBounds(300, 190, 400, 30);
         add(fieldName);
 
-        CustomFieldLabel labelLastName = new CustomFieldLabel("Last Name",Color.BLACK, (new Font("Ralway", Font.BOLD, 20)), 100, 290, 200, 20);
+        CustomFieldLabel labelLastName = new CustomFieldLabel("Last Name",Color.BLACK, (new Font("Ralway", Font.BOLD, 20)), 100, 240, 200, 20);
         add(labelLastName);
 
         fieldLastname = TextFieldFactory.createCustomRoundedTextField(20,(new Font("Ralway", Font.BOLD, 14)), Color.WHITE, Color.BLACK );
-        fieldLastname.setBounds(100, 340, 200, 30);
+        fieldLastname.setBounds(300, 240, 400, 30);
         add(fieldLastname);
 
-        CustomFieldLabel DOB = new CustomFieldLabel("Date of Birth",Color.BLACK, (new Font("Ralway", Font.BOLD, 20)), 100, 380, 200, 30);
-        add(DOB);
-
-        dateChooser = new JDateChooser();
-        dateChooser.setForeground(new Color(105, 105, 105));
-        dateChooser.setBounds(100, 420, 200, 30);
-        add(dateChooser);
-
-        CustomFieldLabel labelG = new CustomFieldLabel("Gender",Color.BLACK, (new Font("Ralway", Font.BOLD, 20)), 100, 460, 200, 30);
+        CustomFieldLabel labelG = new CustomFieldLabel("Gender",Color.BLACK, (new Font("Ralway", Font.BOLD, 20)), 100, 290, 200, 30);
         add(labelG);
 
         r1 = new JRadioButton("Male");
         r1.setFont(new Font("Raleway", Font.BOLD, 14));
-        r1.setBounds(100, 490, 200, 30);
+        r1.setBounds(300, 290, 70, 30);
         add(r1);
+
         r2 = new JRadioButton("Female");
         r2.setFont(new Font("Raleway", Font.BOLD, 14));
-        r2.setBounds(180, 490, 200, 30);
+        r2.setBounds(380, 290, 100, 30);
         add(r2);
 
+        ButtonGroup genderButtonsGroup = new ButtonGroup();
+        genderButtonsGroup.add(r1);
+        genderButtonsGroup.add(r2);
 
-        getContentPane().setBackground(new Color(222,255, 228));
+        CustomFieldLabel DOB = new CustomFieldLabel("Date of Birth",Color.BLACK, (new Font("Ralway", Font.BOLD, 20)), 100, 340, 200, 30);
+        add(DOB);
+
+        dateChooser = new JDateChooser();
+        dateChooser.setForeground(new Color(105, 105, 105));
+        dateChooser.setBounds(300, 340, 400, 30);
+        add(dateChooser);
+
+        CustomFieldLabel labelEmail = new CustomFieldLabel("Email",Color.BLACK, (new Font("Ralway", Font.BOLD, 20)), 100, 390, 200, 20);
+        add(labelEmail);
+
+        fieldEmail = TextFieldFactory.createCustomRoundedTextField(20,(new Font("Ralway", Font.BOLD, 14)), Color.WHITE, Color.BLACK );
+        fieldEmail.setBounds(300, 390, 400, 30);
+        add(fieldEmail);
+
+        CustomFieldLabel maritalStatus = new CustomFieldLabel("Marital Status",Color.BLACK, (new Font("Ralway", Font.BOLD, 20)), 100, 440, 200, 20);
+        add(maritalStatus);
+
+
+        married = new JRadioButton("Married");
+        married.setFont(new Font("Raleway", Font.BOLD, 14));
+        married.setBounds(300, 440, 100, 30);
+        add(married);
+
+        unmarried = new JRadioButton("Unmarried");
+        unmarried.setFont(new Font("Raleway", Font.BOLD, 14));
+        unmarried.setBounds(400, 440, 120, 30);
+        add(unmarried);
+
+        other = new JRadioButton("Other");
+        other.setFont(new Font("Raleway", Font.BOLD, 14));
+        other.setBounds(520, 440, 120, 30);
+        add(other);
+
+        ButtonGroup maritalStatusButtonsGroup = new ButtonGroup();
+        maritalStatusButtonsGroup.add(married);
+        maritalStatusButtonsGroup.add(unmarried);
+        maritalStatusButtonsGroup.add(other);
+
+        CustomFieldLabel address = new CustomFieldLabel("Address",Color.BLACK, (new Font("Ralway", Font.BOLD, 20)), 100, 490, 200, 20);
+        add(address);
+
+        fieldAddress = TextFieldFactory.createCustomRoundedTextField(20,(new Font("Ralway", Font.BOLD, 14)), Color.WHITE, Color.BLACK );
+        fieldAddress.setBounds(300, 490, 400, 30);
+        add(fieldAddress);
+
+        CustomFieldLabel city = new CustomFieldLabel("City",Color.BLACK, (new Font("Ralway", Font.BOLD, 20)), 100, 540, 200, 20);
+        add(city);
+
+        fieldCity = TextFieldFactory.createCustomRoundedTextField(20,(new Font("Ralway", Font.BOLD, 14)), Color.WHITE, Color.BLACK );
+        fieldCity.setBounds(300, 540, 400, 30);
+        add(fieldCity);
+
+        CustomFieldLabel pin = new CustomFieldLabel("PIN",Color.BLACK, (new Font("Ralway", Font.BOLD, 20)), 100, 590, 200, 20);
+        add(pin);
+
+        fieldCity = TextFieldFactory.createCustomRoundedTextField(20,(new Font("Ralway", Font.BOLD, 14)), Color.WHITE, Color.BLACK );
+        fieldCity.setBounds(300, 590, 400, 30);
+        add(fieldCity);
+
+        CustomFieldLabel state = new CustomFieldLabel("State",Color.BLACK, (new Font("Ralway", Font.BOLD, 20)), 100, 640, 200, 20);
+        add(state);
+
+        fieldState = TextFieldFactory.createCustomRoundedTextField(20,(new Font("Ralway", Font.BOLD, 14)), Color.WHITE, Color.BLACK );
+        fieldState.setBounds(300, 640, 400, 30);
+        add(fieldState);
+
+        RoundedButton nextButton = ButtonFactory.createDefaultRoundedButton("NEXT", 620, 710, 80, 30);
+        nextButton.addActionListener(this);
+        add(nextButton);
+
+        getContentPane().setBackground(new Color(86, 95, 198));
         setLayout(null);
         setSize(850, 800);
         setLocation(360, 40);
         setVisible(true);
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e){
+
     }
     public static void main(String[] args) {
         new Signup();
