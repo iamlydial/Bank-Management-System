@@ -19,7 +19,7 @@ public class Signup extends JFrame implements ActionListener {
 
     JRadioButton r1, r2, married, unmarried, other;
 
-    RoundedTextField fieldName, fieldLastname, fieldEmail, fieldAddress,fieldCity, fieldState;
+    RoundedTextField fieldName, fieldLastname, fieldEmail, fieldAddress,fieldCity, fieldPin, fieldState;
     JDateChooser dateChooser;
     Random ran = new Random();
     long first4 = (ran.nextLong()%9000L)+1000L;
@@ -137,9 +137,9 @@ public class Signup extends JFrame implements ActionListener {
         CustomFieldLabel pin = new CustomFieldLabel("PIN",Color.BLACK, (new Font("Ralway", Font.BOLD, 20)), 100, 590, 200, 20);
         add(pin);
 
-        fieldCity = TextFieldFactory.createCustomRoundedTextField(20,(new Font("Ralway", Font.BOLD, 14)), Color.WHITE, Color.BLACK );
-        fieldCity.setBounds(300, 590, 400, 30);
-        add(fieldCity);
+        fieldPin = TextFieldFactory.createCustomRoundedTextField(20,(new Font("Ralway", Font.BOLD, 14)), Color.WHITE, Color.BLACK );
+        fieldPin.setBounds(300, 590, 400, 30);
+        add(fieldPin);
 
         CustomFieldLabel state = new CustomFieldLabel("State",Color.BLACK, (new Font("Ralway", Font.BOLD, 20)), 100, 640, 200, 20);
         add(state);
@@ -161,6 +161,44 @@ public class Signup extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e){
+        String form_No = first;
+        String name = fieldName.getText();
+        String lastName = fieldLastname.getText();
+        String dob = ((JTextField) dateChooser.getDateEditor().getUiComponent()).getText();
+        String gender = null;
+        if(r1.isSelected()){
+            gender = "Male";
+        } else if(r2.isSelected()){
+            gender = "Female";
+        }
+        String email = fieldEmail.getText();
+        String maritalStatus = null;
+        if(married.isSelected()){
+            maritalStatus = "Married";
+        } else if(unmarried.isSelected()){
+            maritalStatus = "Unmarried";
+        } else if(other.isSelected()){
+            maritalStatus = "Other";
+        }
+
+        String address = fieldAddress.getText();
+        String city = fieldCity.getText();
+        String pin = fieldPin.getText();
+        String state = fieldState.getText();
+
+        try{
+            if(name.equals("")){
+                JOptionPane.showMessageDialog(null, "Fill all the fields");
+            } else {
+                Con con1 = new Con();
+                String q = "insert into signup value('"+form_No+"', '"+name+"', '"+lastName+"', '"+dob+"', '"+gender+"', '"+email+"', '"+maritalStatus+"', '"+address+"', '"+city+"', '"+pin+"' , '"+state+"')";
+                con1.statement.executeUpdate(q);
+                new Signup2();
+                setVisible(false);
+            }
+        }catch (Exception E){
+            E.printStackTrace();
+        }
 
     }
     public static void main(String[] args) {
