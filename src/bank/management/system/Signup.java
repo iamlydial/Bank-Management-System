@@ -13,6 +13,8 @@ import java.util.Random;
 
 public class Signup extends JFrame {
 
+    JRadioButton r1,r2;
+
     RoundedTextField fieldName, fieldLastname;
     JDateChooser dateChooser;
     Random ran = new Random();
@@ -65,6 +67,19 @@ public class Signup extends JFrame {
         dateChooser.setForeground(new Color(105, 105, 105));
         dateChooser.setBounds(100, 420, 200, 30);
         add(dateChooser);
+
+        CustomFieldLabel labelG = new CustomFieldLabel("Gender",Color.BLACK, (new Font("Ralway", Font.BOLD, 20)), 100, 460, 200, 30);
+        add(labelG);
+
+        r1 = new JRadioButton("Male");
+        r1.setFont(new Font("Raleway", Font.BOLD, 14));
+        r1.setBounds(100, 490, 200, 30);
+        add(r1);
+        r2 = new JRadioButton("Female");
+        r2.setFont(new Font("Raleway", Font.BOLD, 14));
+        r2.setBounds(180, 490, 200, 30);
+        add(r2);
+
 
         getContentPane().setBackground(new Color(222,255, 228));
         setLayout(null);
